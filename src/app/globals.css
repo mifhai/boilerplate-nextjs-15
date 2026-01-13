@@ -1,0 +1,42 @@
+@layer theme, base, components, utilities;
+
+@import "@mantine/core/styles.layer.css" layer(components);
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/*
+Contoh menambahkan class custom agar tidak kena warning no-unregistered-classes
+*/
+@utility my-class {
+  @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body,
+main {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+input,
+textarea,
+select,
+button,
+option {
+  font-family: inherit;
+}

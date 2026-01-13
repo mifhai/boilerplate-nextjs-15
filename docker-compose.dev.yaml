@@ -1,0 +1,19 @@
+services:
+  app_fe:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: nextjs-boilerplate-fe
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    networks:
+      - app
+
+networks:
+  app:
+    name: nextjs-boilerplate
+    driver: bridge

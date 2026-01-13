@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:3000"
+    environment:
+      NEXT_BASE_URL: /
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge

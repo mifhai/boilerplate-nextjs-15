@@ -1,0 +1,123 @@
+{
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "search.exclude": {
+    "package-lock.json": true
+  },
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.rulers": [
+    {
+      "column": 2,
+      "color": "#88888820"
+    },
+    {
+      "column": 4,
+      "color": "#88888820"
+    },
+    {
+      "column": 6,
+      "color": "#88888820"
+    },
+    {
+      "column": 8,
+      "color": "#88888820"
+    },
+    {
+      "column": 10,
+      "color": "#88888820"
+    },
+    {
+      "column": 12,
+      "color": "#88888820"
+    },
+    {
+      "column": 80,
+      "color": "#ffff00"
+    },
+    {
+      "column": 100,
+      "color": "#ff0000"
+    },
+    {
+      "column": 120,
+      "color": "#ff0000"
+    }
+  ],
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.filePath": "on",
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  /* eslint */
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.organizeImports": "never"
+  },
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "tailwindCSS.classAttributes": [
+    "className",
+    "classNames"
+  ],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss",
+    "github-actions-workflow"
+  ],
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off", "fixable": true },
+    { "rule": "format/*", "severity": "off", "fixable": true },
+    { "rule": "*-indent", "severity": "off", "fixable": true },
+    { "rule": "*-spacing", "severity": "off", "fixable": true },
+    { "rule": "*-spaces", "severity": "off", "fixable": true },
+    { "rule": "*-order", "severity": "off", "fixable": true },
+    { "rule": "*-dangle", "severity": "off", "fixable": true },
+    { "rule": "*-newline", "severity": "off", "fixable": true },
+    { "rule": "*quotes", "severity": "off", "fixable": true },
+    { "rule": "*semi", "severity": "off", "fixable": true }
+  ]
+}
