@@ -1,40 +1,39 @@
-import { TextInput as MantineTextInput } from "@mantine/core";
+import { NumberInput as MantineNumberInput } from "@mantine/core";
 
 import { primaryColors } from "@/configs/mantine-theme";
 import { cn } from "@/libs/tailwind-clsx";
 
-import type { TextInputProps } from "@mantine/core";
-import type { InputHTMLAttributes } from "react";
+import type { NumberInputProps } from "@mantine/core";
 
-type IInputElement = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "style">;
-interface IProps extends TextInputProps, IInputElement {
+interface IProps extends NumberInputProps {
   variety?: "default" | "custom";
   classnames?: {
     root?: string;
     input?: string;
     label?: string;
-    section?: string;
+    wrapper?: string;
+    controls?: string;
+    control?: string;
   };
 }
 
 const base = { radius: "md" };
 
-export const TextInput = ({ ref, ...props }: IProps & { ref?: React.RefObject<HTMLInputElement | null> }) => {
+export const NumberInput = ({ ref, ...props }: IProps & { ref?: React.RefObject<HTMLInputElement | null> }) => {
   const { variety = "default", ...rest } = props;
 
   if (variety === "default") {
     return (
-      <MantineTextInput
+      <MantineNumberInput
         {...base}
         ref={ref}
         classNames={{
           root: cn(rest.classnames?.root),
-          input: cn(
-            `h-[2.75rem] text-base`,
-            rest.classnames?.input,
-          ),
+          input: cn("h-[2.75rem] text-base", rest.classnames?.input),
           label: cn("mb-1 text-base", rest.classnames?.label),
-          section: cn(rest.classnames?.section),
+          wrapper: cn(rest.classnames?.wrapper),
+          controls: cn(rest.classnames?.controls),
+          control: cn(rest.classnames?.control),
           error: "text-xs",
         }}
         styles={{
@@ -50,10 +49,10 @@ export const TextInput = ({ ref, ...props }: IProps & { ref?: React.RefObject<HT
   }
 
   if (variety === "custom") {
-    return <MantineTextInput {...base} ref={ref} {...rest} />;
+    return <MantineNumberInput {...base} ref={ref} {...rest} />;
   }
 
   return null;
 };
 
-TextInput.displayName = "TextInput";
+NumberInput.displayName = "NumberInput";

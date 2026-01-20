@@ -1,5 +1,6 @@
 import { createPolymorphicComponent, Button as MantineButton } from "@mantine/core";
 
+import { primaryColors, secondaryColors } from "@/configs/mantine-theme";
 import { cn } from "@/libs/tailwind-clsx";
 
 import type { ButtonProps } from "@mantine/core";
@@ -29,8 +30,8 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
           <MantineButton
             ref={ref}
             {...base}
-            c="#292D32"
-            color="#E0E0E0"
+            c={primaryColors[900]}
+            color={secondaryColors[200]}
             classNames={{
               root: cn("h-[2.5rem]", classNames?.root),
               label: cn("font-semibold", classNames?.label),
@@ -48,15 +49,16 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
             ref={ref}
             {...base}
             variant="outline"
-            color="#D0D5DD"
+            color={primaryColors[300]}
             bg="white"
             classNames={{
               root: cn(classNames?.root),
-              label: cn("font-semibold text-[#017534]", classNames?.label),
+              label: cn("font-semibold", classNames?.label),
               inner: cn(classNames?.inner),
               loader: cn(classNames?.loader),
               section: cn(classNames?.section),
             }}
+            style={{ "--button-color": primaryColors[700] }}
             {...rest}
           />
         );
@@ -71,7 +73,7 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
             bg="white"
             classNames={{
               root: cn("h-[2.5rem]", classNames?.root),
-              label: cn("font-semibold text-[#FA4F47]", classNames?.label),
+              label: cn("font-semibold text-red-500", classNames?.label),
               inner: cn(classNames?.inner),
               loader: cn(classNames?.loader),
               section: cn(classNames?.section),
@@ -86,9 +88,10 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
             ref={ref}
             {...base}
             variant="transparent"
+            color={primaryColors[700]}
             classNames={{
               root: cn(classNames?.root),
-              label: cn("font-semibold text-[#017534]", classNames?.label),
+              label: cn("font-semibold", classNames?.label),
               inner: cn(classNames?.inner),
               loader: cn(classNames?.loader),
               section: cn(classNames?.section),
@@ -102,7 +105,7 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
           <MantineButton
             ref={ref}
             {...base}
-            bg="#017534"
+            bg={primaryColors[700]}
             classNames={{
               root: cn("h-[3.75rem]", classNames?.root),
               label: cn("text-[18px] font-bold", classNames?.label),
@@ -123,7 +126,7 @@ export const Button = createPolymorphicComponent<"button", IButtonProps>(
           <MantineButton
             ref={ref}
             {...base}
-            color="#017534"
+            color={primaryColors[600]}
             classNames={{
               root: cn("h-[2.5rem]", classNames?.root),
               label: cn("font-semibold", classNames?.label),

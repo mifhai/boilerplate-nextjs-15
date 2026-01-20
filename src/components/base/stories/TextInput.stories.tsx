@@ -12,7 +12,7 @@ type TextInputStory = StoryObj<typeof meta>;
 
 export const Default: TextInputStory = {
   render: args => (
-    <div className="min-w-[300px]">
+    <div className="min-w-75">
       <TextInput {...args} />
     </div>
   ),

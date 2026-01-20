@@ -1,40 +1,38 @@
-import { TextInput as MantineTextInput } from "@mantine/core";
+import { Textarea as MantineTextarea } from "@mantine/core";
 
 import { primaryColors } from "@/configs/mantine-theme";
 import { cn } from "@/libs/tailwind-clsx";
 
-import type { TextInputProps } from "@mantine/core";
-import type { InputHTMLAttributes } from "react";
+import type { TextareaProps } from "@mantine/core";
+import type { TextareaHTMLAttributes } from "react";
 
-type IInputElement = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "style">;
-interface IProps extends TextInputProps, IInputElement {
+type ITextareaElement = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "style">;
+
+interface IProps extends TextareaProps, ITextareaElement {
   variety?: "default" | "custom";
   classnames?: {
     root?: string;
     input?: string;
     label?: string;
-    section?: string;
+    wrapper?: string;
   };
 }
 
 const base = { radius: "md" };
 
-export const TextInput = ({ ref, ...props }: IProps & { ref?: React.RefObject<HTMLInputElement | null> }) => {
+export const Textarea = ({ ref, ...props }: IProps & { ref?: React.RefObject<HTMLTextAreaElement | null> }) => {
   const { variety = "default", ...rest } = props;
 
   if (variety === "default") {
     return (
-      <MantineTextInput
+      <MantineTextarea
         {...base}
         ref={ref}
         classNames={{
           root: cn(rest.classnames?.root),
-          input: cn(
-            `h-[2.75rem] text-base`,
-            rest.classnames?.input,
-          ),
+          input: cn("min-h-[100px] text-base", rest.classnames?.input),
           label: cn("mb-1 text-base", rest.classnames?.label),
-          section: cn(rest.classnames?.section),
+          wrapper: cn(rest.classnames?.wrapper),
           error: "text-xs",
         }}
         styles={{
@@ -50,10 +48,10 @@ export const TextInput = ({ ref, ...props }: IProps & { ref?: React.RefObject<HT
   }
 
   if (variety === "custom") {
-    return <MantineTextInput {...base} ref={ref} {...rest} />;
+    return <MantineTextarea {...base} ref={ref} {...rest} />;
   }
 
   return null;
 };
 
-TextInput.displayName = "TextInput";
+Textarea.displayName = "Textarea";
